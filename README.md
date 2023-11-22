@@ -1,3 +1,16 @@
+# How to crate angular project from angular 17 
+
+Without standalone components use below commands
+
+ng new <project-name> --no-standalone
+
+# FireBase setup
+
+Go to [firebase url given here](https://firebase.google.com/docs/reference/rest/auth?hl=en&authuser=0#section-sign-in-email-password)
+generate/ add users like below
+go to firebase ->select your project->on left side you will see authentication->click on getstarted->select email/password->enable this. thats it and do refresh-> then add email and password, now login with same email and password, you will not get 400 now
+
+
 # NgrxApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
