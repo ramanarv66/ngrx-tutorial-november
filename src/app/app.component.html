@@ -2,6 +2,7 @@
 <app-header></app-header>
 <app-loading-spineer *ngIf="showSpinner"></app-loading-spineer>
 <div class="row">
+  <p *ngIf="error" class="alert alert-danger">{{error}}</p>
   <div class="col-md-12">
     <router-outlet></router-outlet>
   </div>

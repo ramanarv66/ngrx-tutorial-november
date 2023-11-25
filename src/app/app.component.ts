@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Appstate } from './state/app.state';
 import { Store } from '@ngrx/store';
-import { getLoading } from './store/shared/shared.selector';
+import { getLoading, showErrorMsgSelector } from './store/shared/shared.selector';
+import { autoLogin } from './auth/state/auth.action';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import { getLoading } from './store/shared/shared.selector';
 })
 export class AppComponent {
   title = 'ngrx-app';
+  error = '';
 
   showSpinner: boolean = false;
   constructor(private store:Store<Appstate>){}
@@ -18,5 +20,10 @@ export class AppComponent {
       this.store.select(getLoading).subscribe((data)=>{
         this.showSpinner = data;
       })
+      this.store.select(showErrorMsgSelector).subscribe((data)=>{
+        this.error = data;
+      })
+      console.log(sessionStorage.getItem('userData'))
+      this.store.dispatch(autoLogin())
   }
 }

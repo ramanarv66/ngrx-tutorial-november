@@ -11,6 +11,8 @@ generate/ add users like below.
 
 `Go to firebase ->select your project->on left side you will see authentication->click on getstarted->select email/password->enable this. thats it and do refresh-> then add email and password, now login with same email and password, you will not get 400 now`
 
+# For key generation and APIS
+For login and Signup API's [go to below link](https://firebase.google.com/docs/reference/rest/auth)
 
 # NgrxApp
 

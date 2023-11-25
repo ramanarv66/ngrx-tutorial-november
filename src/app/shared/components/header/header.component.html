@@ -16,13 +16,16 @@
             <a class="nav-link" [routerLink]="['/posts']">Posts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/auth/login']">Login</a>
+            <a class="nav-link" [routerLink]="['/auth/login']"  *ngIf="!logOut">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/auth/signup']">SignUp</a>
+            <a class="nav-link"   *ngIf="logOut">Logout</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/auth/signup']" *ngIf="!logOut">SignUp</a>
           </li>
          
-          
+        
         </ul>
       </div>
     </div>
