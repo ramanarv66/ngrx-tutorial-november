@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth.service';
 import { Appstate } from '../../state/app.state';
 import { Store } from '@ngrx/store';
 import { loginStart } from '../state/auth.action';
+import { setLoadingSpinner } from '../../store/shared/shared.action';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent {
   }
   onLogin() {
     this.authService.login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
-    console.log(this.loginForm.value)
+    console.log(this.loginForm.value);
+   // this.store.dispatch(setLoadingSpinner({status:true}))
     this.store.dispatch(loginStart({email:this.loginForm.controls['email'].value, password:this.loginForm.controls['password'].value}))
   }
 

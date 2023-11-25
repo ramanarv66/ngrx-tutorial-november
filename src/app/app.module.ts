@@ -17,10 +17,11 @@ import { Appreducer } from './state/app.state';
 import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthEffects } from './auth/state/auth.effect';
+import { LoadingSpineerComponent } from './shared/components/loading-spineer/loading-spineer.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, HeaderComponent, 
+    AppComponent, HomeComponent, HeaderComponent, LoadingSpineerComponent, 
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,7 @@ import { AuthEffects } from './auth/state/auth.effect';
     ReactiveFormsModule,
     FormsModule,
     // StoreModule.forRoot({  counterReduc: counterReducer, postsReducer: postReduc }, {}),
-    StoreModule.forRoot({}),
+    StoreModule.forRoot(Appreducer),
     EffectsModule.forRoot([AuthEffects]),
     HttpClientModule,
     StoreDevtoolsModule.instrument({
