@@ -63,16 +63,16 @@ export class AuthService {
 
 
     runTimeoutInterval(user: User) {
-        if(user){
-            
-        let timeInterval = new Date(user.expirationDate).getTime();
-        let todayDate = new Date().getTime();
-        let expireTime = todayDate - timeInterval;
+        if (user) {
 
-        setTimeout(() => {
+            let timeInterval = new Date(user.expirationDate).getTime();
+            let todayDate = new Date().getTime();
+            let expireTime = todayDate - timeInterval;
+
+            setTimeout(() => {
                 // outo logout or refresh tokean
-        }, expireTime);
+            }, expireTime);
 
+        }
     }
-}
 }

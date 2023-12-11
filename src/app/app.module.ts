@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthEffects } from './auth/state/auth.effect';
 import { LoadingSpineerComponent } from './shared/components/loading-spineer/loading-spineer.component';
 import { StudentsModule } from './students/students/students.module';
+import { StudentEffect } from './students/store/student-effects';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { StudentsModule } from './students/students/students.module';
     FormsModule,
     // StoreModule.forRoot({  counterReduc: counterReducer, postsReducer: postReduc }, {}),
     StoreModule.forRoot(Appreducer),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, StudentEffect]),
     HttpClientModule,
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states

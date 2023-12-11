@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { StudentsState } from "../store/student.state";
+import { Student, StudentsState } from "../store/student.state";
+import { Observable } from "rxjs";
 
 
 @Injectable({
@@ -10,8 +11,11 @@ export class StudentService {
 
     constructor(private httpClient: HttpClient){}
 
-    getAllStudents(){
-        this.httpClient.get<StudentsState>('https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students.json')
+    getAllStudents(): Observable<StudentsState>{
+       return this.httpClient.get<StudentsState>('https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students.json')
+    }
+    addStudent(student: Student){
+        this.httpClient.post<Student>('',student)
     }
 
 }

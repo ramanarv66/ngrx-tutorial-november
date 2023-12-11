@@ -23,7 +23,6 @@ export class AppComponent {
       this.store.select(showErrorMsgSelector).subscribe((data)=>{
         this.error = data;
       })
-      console.log(sessionStorage.getItem('userData'))
       this.store.dispatch(autoLogin())
   }
 }

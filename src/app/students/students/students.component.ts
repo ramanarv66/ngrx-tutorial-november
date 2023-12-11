@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { getAllStudentSelector } from '../store/students-selector';
 import { Appstate } from '../../state/app.state';
+import { getStudnetsAction } from '../store/students-action';
 
 @Component({
   selector: 'app-students',
@@ -13,9 +14,10 @@ export class StudentsComponent implements OnInit{
   constructor(private store: Store<Appstate>){}
 
   ngOnInit(): void {
-      this.store.select(getAllStudentSelector).subscribe((data)=>{
-        console.log(data)
-      })
+      // this.store.select(getAllStudentSelector).subscribe((data)=>{
+      //   console.log(data)
+      // })
+      this.store.dispatch(getStudnetsAction())
   }
 
 }
