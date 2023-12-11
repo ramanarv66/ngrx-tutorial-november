@@ -18,6 +18,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthEffects } from './auth/state/auth.effect';
 import { LoadingSpineerComponent } from './shared/components/loading-spineer/loading-spineer.component';
+import { StudentsModule } from './students/students/students.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { LoadingSpineerComponent } from './shared/components/loading-spineer/loa
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    StudentsModule,
     FormsModule,
     // StoreModule.forRoot({  counterReduc: counterReducer, postsReducer: postReduc }, {}),
     StoreModule.forRoot(Appreducer),
