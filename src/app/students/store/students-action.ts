@@ -8,6 +8,8 @@ export const LOAD_STUDENTS_LIST_SUCCESS = '[students page] students data success
 export const LOAD_EACH_STUDENT = '[students page] load each student'
 export const LOAD_EACH_STUDENT_SUCCESS = '[students page] load each student success'
 export const UPDATE_STUDENT_SUCCESS = '[students page] update student success'
+export const DELETE_STUDENT = '[students page] delete student'
+export const DELETE_STUDENT_SUCCESS = '[students page] delete student success'
 
 //export const getStudnetsAction1 = createAction(GET_STUDENTS);
 export const UPDATE_STUDENT = '[students page] update student'
@@ -22,3 +24,6 @@ export const loadEachStudentSuccess = createAction(LOAD_EACH_STUDENT_SUCCESS, pr
 
 export const updateStudent = createAction(UPDATE_STUDENT, props<{student: Student}>())
 export const updateStudentSuccess = createAction(UPDATE_STUDENT_SUCCESS, props<{student: Student}>())
+
+export const deleteStudent = createAction(DELETE_STUDENT, props<{id: String}>())
+export const deleteStudentSuccess = createAction(DELETE_STUDENT_SUCCESS, props<{id: String}>())

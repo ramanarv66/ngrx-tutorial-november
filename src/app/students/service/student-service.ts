@@ -20,5 +20,8 @@ export class StudentService {
     updateStudent(student: Student){
         return this.httpClient.patch('https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students.json',student)
     }
+    deleteStudent(id: string){
+        return this.httpClient.delete(`https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students/${id}.json`)
+    }
 
 }
