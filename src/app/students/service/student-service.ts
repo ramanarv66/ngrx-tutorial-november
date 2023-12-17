@@ -14,8 +14,8 @@ export class StudentService {
     getAllStudents(): Observable<StudentsState>{
        return this.httpClient.get<StudentsState>('https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students.json')
     }
-    addStudent(student: Student){
-        this.httpClient.post<Student>('',student)
+    addStudent(student: Student): Observable<string>{
+       return this.httpClient.post<string>('https://ngrx-crud-nov-default-rtdb.asia-southeast1.firebasedatabase.app/students.json',student)
     }
 
 }

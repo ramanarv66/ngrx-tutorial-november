@@ -20,10 +20,11 @@ import { AuthEffects } from './auth/state/auth.effect';
 import { LoadingSpineerComponent } from './shared/components/loading-spineer/loading-spineer.component';
 import { StudentsModule } from './students/students/students.module';
 import { StudentEffect } from './students/store/student-effects';
+import { AddStudentComponent } from './students/add-student/add-student/add-student.component';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent, HeaderComponent, LoadingSpineerComponent, 
+    AppComponent, HomeComponent, HeaderComponent, LoadingSpineerComponent, AddStudentComponent, 
   ],
   imports: [
     BrowserModule,
