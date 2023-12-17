@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { addStudentDataSuccess, addStudentList, getStudnetsAction, loadStudentDataSuccess, loadStuedentList } from "./students-action";
+import { addStudentDataSuccess, addStudentList, getStudnetsAction, loadStudentDataSuccess, loadStuedentList, updateStudent, updateStudentSuccess } from "./students-action";
 import { map, mergeMap, switchMap } from "rxjs";
 import { StudentService } from "../service/student-service";
 import { Student } from "./student.state";
@@ -65,20 +65,32 @@ export class StudentEffect {
     // }, { dispatch: false }
 
     addStudentEffect$ = createEffect(
-        (): any => { 
-            return this.actions$.pipe(ofType(addStudentList), mergeMap((action: any)=>{
+        (): any => {
+            return this.actions$.pipe(ofType(addStudentList), mergeMap((action: any) => {
                 return this.studentService.addStudent(action.student).pipe(
-                    map((data)=>{
+                    map((data) => {
                         console.log('addstudent data', data)
                         let student = new Student();
                         student.id = Object.values(data)[0];
                         student.name = action.student.name;
-                        return addStudentDataSuccess({students: student})
-                        // student.id = Object.values(data)['id'];
-                        // return 
+                        return addStudentDataSuccess({ students: student })
                     })
                 )
             }))
+        }, { dispatch: true }
+    )
+
+    updateStudentEffect$ = createEffect(
+        (): any => {
+            return this.actions$.pipe(ofType(updateStudent), mergeMap((action) => {
+                return this.studentService.updateStudent(action.student).pipe(
+                    map((data) => {
+                        return updateStudentSuccess({ student: action.student })
+
+                    })
+                )
+            }))
+
         }, { dispatch: true }
     )
 

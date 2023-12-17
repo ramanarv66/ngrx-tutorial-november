@@ -35,7 +35,7 @@ export class EditPostsComponent implements OnInit {
     updatePost.title = this.postForm.controls['title'].value;
     updatePost.description = this.postForm.controls['description'].value;
     this.store.dispatch(updatePostAction({post: updatePost}))
-  this.router.navigate(['posts'])
+     this.router.navigate(['posts'])
 
   }
 

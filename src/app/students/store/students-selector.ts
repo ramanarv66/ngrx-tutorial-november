@@ -7,3 +7,7 @@ export const studentSelector = createFeatureSelector<StudentsState>(STUDENT_STAT
 // createSelector(studentSelector, (action)=>{return action.})
 
 export const getAllStudentSelector = createSelector(studentSelector, (state) => { return state.students })
+
+export const getStudentById = createSelector(studentSelector, (state:StudentsState, action:any) => {
+    return state.students.filter(a=>a.id == action.id);
+})
